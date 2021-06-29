@@ -35,4 +35,14 @@ public class FizzBuzzEditShould
         var result = systemUnderTest.Process(6);
         Assert.AreEqual(expectedResult, result);
     }
+
+    [Test]
+    public void ProcessReturnsFizzIf9Provided()
+    {
+        var systemUnderTest = new GameObject().AddComponent<FizzBuzz>();
+        string expectedResult = "Fizz";
+
+        var result = systemUnderTest.Process(9);
+        Assert.AreEqual(expectedResult, result);
+    }
 }
