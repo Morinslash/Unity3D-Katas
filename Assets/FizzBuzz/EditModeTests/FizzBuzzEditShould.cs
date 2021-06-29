@@ -1,6 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
-
 public class FizzBuzzEditShould
 {
     [Test]
@@ -14,32 +15,15 @@ public class FizzBuzzEditShould
     }
 
     [Test]
-    public void ProcessReturnsFizzIf3Provided()
+    [TestCase(3)]
+    [TestCase(6)]
+    [TestCase(9)]
+    public void ProcessReturnsFizzIfNumberDividableBy3Provided(int number)
     {
         var systemUnderTest = new GameObject().AddComponent<FizzBuzz.FizzBuzzScripts.FizzBuzz>();
         string expectedResult = "Fizz";
 
-        var result = systemUnderTest.Process(3);
-        Assert.AreEqual(expectedResult, result);
-    }
-
-    [Test]
-    public void ProcessReturnsFizzIf6Provided()
-    {
-        var systemUnderTest = new GameObject().AddComponent<FizzBuzz.FizzBuzzScripts.FizzBuzz>();
-        string expectedResult = "Fizz";
-
-        var result = systemUnderTest.Process(6);
-        Assert.AreEqual(expectedResult, result);
-    }
-
-    [Test]
-    public void ProcessReturnsFizzIf9Provided()
-    {
-        var systemUnderTest = new GameObject().AddComponent<FizzBuzz.FizzBuzzScripts.FizzBuzz>();
-        string expectedResult = "Fizz";
-
-        var result = systemUnderTest.Process(9);
+        var result = systemUnderTest.Process(number);
         Assert.AreEqual(expectedResult, result);
     }
 }
