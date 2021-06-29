@@ -4,13 +4,19 @@ using NUnit.Framework;
 using UnityEngine;
 public class FizzBuzzEditShould
 {
+    private FizzBuzz.FizzBuzzScripts.FizzBuzz _systemUnderTest;
+
+    [SetUp]
+    public void Init()
+    {
+        _systemUnderTest = new GameObject().AddComponent<FizzBuzz.FizzBuzzScripts.FizzBuzz>();
+    }
     [Test]
     public void ProcessReturnNumber1AsString()
     {
-        var systemUnderTest = new GameObject().AddComponent<FizzBuzz.FizzBuzzScripts.FizzBuzz>();
         string expectedResult = "1";
 
-        var result = systemUnderTest.Process(1);
+        var result = _systemUnderTest.Process(1);
         Assert.AreEqual(expectedResult, result);
     }
 
@@ -20,10 +26,9 @@ public class FizzBuzzEditShould
     [TestCase(9)]
     public void ProcessReturnsFizzIfNumberDividableBy3Provided(int number)
     {
-        var systemUnderTest = new GameObject().AddComponent<FizzBuzz.FizzBuzzScripts.FizzBuzz>();
         string expectedResult = "Fizz";
 
-        var result = systemUnderTest.Process(number);
+        var result = _systemUnderTest.Process(number);
         Assert.AreEqual(expectedResult, result);
     }
 }
