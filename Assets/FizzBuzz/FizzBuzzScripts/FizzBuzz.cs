@@ -16,8 +16,12 @@ public class FizzBuzz : MonoBehaviour
         
     }
 
-    public object process(int number)
+    public string Process(int number)
     {
+        if (number == 3)
+        {
+            return "Fizz";
+        }
         return number.ToString();
     }
 }
