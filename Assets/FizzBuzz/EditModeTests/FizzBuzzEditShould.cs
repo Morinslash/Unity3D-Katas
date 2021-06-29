@@ -6,11 +6,14 @@ using UnityEngine.TestTools;
 
 public class FizzBuzzEditShould
 {
-    // A Test behaves as an ordinary method
     [Test]
-    public void FizzBuzzEditShouldSimplePasses()
+    public void ProcessReturnNumber1AsString()
     {
-        // Use the Assert class to test conditions
+        var systemUnderTest = new GameObject().AddComponent<FizzBuzz>();
+        string expectedResult = "1";
+
+        var result = systemUnderTest.process(1);
+        Assert.AreEqual(expectedResult, result);
     }
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
