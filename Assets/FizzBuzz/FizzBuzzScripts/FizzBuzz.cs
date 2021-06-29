@@ -1,27 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FizzBuzz : MonoBehaviour
+namespace FizzBuzz.FizzBuzzScripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class FizzBuzz : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public string Process(int number)
-    {
-        if (number == 3 || number == 6 || number == 9)
+        public string Process(int number)
         {
-            return "Fizz";
+            if (number % 3 == 0)
+            {
+                return "Fizz";
+            }
+            return number.ToString();
         }
-        return number.ToString();
     }
 }
