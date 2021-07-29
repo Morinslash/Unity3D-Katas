@@ -44,5 +44,17 @@ namespace FizzBuzz.EditModeTests
             var result = _systemUnderTest.Process(number);
             Assert.AreEqual(expectedResult, result);
         }
+
+        [Test]
+        [TestCase(15)]
+        [TestCase(30)]
+        [TestCase(45)]
+        public void ProcessReturnsFizzBuzzIfNumberDividableBy3And5Provided(int number)
+        {
+            string expectedResult = "FizzBuzz";
+
+            var result = _systemUnderTest.Process(number);
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
