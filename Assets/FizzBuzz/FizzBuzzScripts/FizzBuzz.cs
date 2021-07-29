@@ -6,22 +6,27 @@ namespace FizzBuzz.FizzBuzzScripts
     {
         public string Process(int number)
         {
-            if (number % 3 == 0 && number % 5 == 0)
+            if (DividableBy(15, number))
             {
                 return "FizzBuzz";
             }
 
-            if (number % 3 == 0)
+            if (DividableBy(3, number))
             {
                 return "Fizz";
             }
 
-            if (number % 5 == 0)
+            if (DividableBy(5, number))
             {
                 return "Buzz";
             }
 
             return number.ToString();
+        }
+
+        private bool DividableBy(int factor, int number)
+        {
+            return number % factor == 0;
         }
     }
 }
