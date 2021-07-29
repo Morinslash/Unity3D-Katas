@@ -1,34 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
-public class FizzBuzzEditShould
+
+namespace FizzBuzz.EditModeTests
 {
-    private FizzBuzz.FizzBuzzScripts.FizzBuzz _systemUnderTest;
-
-    [SetUp]
-    public void Init()
+    public class FizzBuzzEditShould
     {
-        _systemUnderTest = new GameObject().AddComponent<FizzBuzz.FizzBuzzScripts.FizzBuzz>();
-    }
-    [Test]
-    public void ProcessReturnNumber1AsString()
-    {
-        string expectedResult = "1";
+        private FizzBuzz.FizzBuzzScripts.FizzBuzz _systemUnderTest;
 
-        var result = _systemUnderTest.Process(1);
-        Assert.AreEqual(expectedResult, result);
-    }
+        [SetUp]
+        public void Init()
+        {
+            _systemUnderTest = new GameObject().AddComponent<FizzBuzz.FizzBuzzScripts.FizzBuzz>();
+        }
+        [Test]
+        public void ProcessReturnNumber1AsString()
+        {
+            string expectedResult = "1";
 
-    [Test]
-    [TestCase(3)]
-    [TestCase(6)]
-    [TestCase(9)]
-    public void ProcessReturnsFizzIfNumberDividableBy3Provided(int number)
-    {
-        string expectedResult = "Fizz";
+            var result = _systemUnderTest.Process(1);
+            Assert.AreEqual(expectedResult, result);
+        }
 
-        var result = _systemUnderTest.Process(number);
-        Assert.AreEqual(expectedResult, result);
+        [Test]
+        [TestCase(3)]
+        [TestCase(6)]
+        [TestCase(9)]
+        public void ProcessReturnsFizzIfNumberDividableBy3Provided(int number)
+        {
+            string expectedResult = "Fizz";
+
+            var result = _systemUnderTest.Process(number);
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
+        [TestCase(5)]
+        [TestCase(10)]
+        [TestCase(20)]
+        public void ProcessReturnsBuzzIfNumberDividableBy5Provided(int number)
+        {
+            string expectedResult = "Buzz";
+
+            var result = _systemUnderTest.Process(number);
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
